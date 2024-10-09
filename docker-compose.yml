@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app  # Mount the entire project folder
+      - ./prayer_times.txt:/usr/src/app/prayer_times.txt  # Mount the txt file
+    environment:
+      - PYTHONUNBUFFERED=1
+    container_name: prayer-times-app
