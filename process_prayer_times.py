@@ -56,11 +56,6 @@ athan_columns.loc[:, 'zuhr jamaah'] = athan_columns['zuhr jamaah'].apply(lambda 
 athan_columns.loc[:, 'asr jamaah'] = athan_columns['asr jamaah'].apply(lambda x: adjust_minutes(x, -20))
 athan_columns.loc[:, 'isha jamaah'] = athan_columns['isha jamaah'].apply(lambda x: adjust_minutes(x, -20))
 
-#athan_columns['fajr jamaah'] = athan_columns['fajr jamaah'].apply(lambda x: adjust_minutes(x, -15))
-#athan_columns['zuhr jamaah'] = athan_columns['zuhr jamaah'].apply(lambda x: adjust_minutes(x, -20))
-#athan_columns['asr jamaah'] = athan_columns['asr jamaah'].apply(lambda x: adjust_minutes(x, -20))
-#athan_columns['isha jamaah'] = athan_columns['isha jamaah'].apply(lambda x: adjust_minutes(x, -20))
-
 # Check if the day is Friday and set 'zuhr jamaah' time to 13:00
 # Convert the date column to datetime and find the day of the week
 day_of_week = pd.to_datetime(df['date'] + f' {current_year}', format='%b %d %Y').dt.dayofweek
