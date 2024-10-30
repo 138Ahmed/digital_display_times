@@ -51,7 +51,7 @@ print("Iqama times saved to iqama_times.csv")
 athan_columns = df[['fajr jamaah', 'sunrise', 'zuhr jamaah', 'asr jamaah', 'maghrib jamaah', 'isha jamaah']].copy()
 
 # Minus minutes to 'fajr jamaah', 'zuhr jamaah', 'asr jamaah', and 'isha jamaah'
-athan_columns.loc[:, 'fajr jamaah'] = athan_columns['fajr jamaah'].apply(lambda x: adjust_minutes(x, -15))
+athan_columns.loc[:, 'fajr jamaah'] = athan_columns['fajr jamaah'].apply(lambda x: adjust_minutes(x, -20))
 athan_columns.loc[:, 'zuhr jamaah'] = athan_columns['zuhr jamaah'].apply(lambda x: adjust_minutes(x, -20))
 athan_columns.loc[:, 'asr jamaah'] = athan_columns['asr jamaah'].apply(lambda x: adjust_minutes(x, -20))
 athan_columns.loc[:, 'isha jamaah'] = athan_columns['isha jamaah'].apply(lambda x: adjust_minutes(x, -20))
@@ -61,7 +61,7 @@ athan_columns.loc[:, 'isha jamaah'] = athan_columns['isha jamaah'].apply(lambda 
 day_of_week = pd.to_datetime(df['date'] + f' {current_year}', format='%b %d %Y').dt.dayofweek
 
 # Set 'zuhr jamaah' to '13:00' on Fridays (day_of_week == 4)
-athan_columns.loc[day_of_week == 4, 'zuhr jamaah'] = '13:00'
+athan_columns.loc[day_of_week == 4, 'zuhr jamaah'] = '12:45'
 
 # Save athan times to a CSV file
 athan_columns.to_csv('athan_times.csv', index=False)
